@@ -55,6 +55,39 @@ function retrievePageOfCharacters(pageNumber) {
     })
 };
 
+function drawCharacterToDetail(characterObject) {
+    console.log(characterObject);
+    console.log('that was what got passed in') 
+    const detailArea = document.querySelector('[data-detail]');
+    detailArea.textContent = ''
+
+    const nameDiv = document.createElement('div');
+    const bornDiv = document.createElement('div');
+    const diedDiv = document.createElement('div');
+
+    nameDiv.textContent = characterObject.name; 
+    bornDiv.textContent = characterObject.born; 
+    diedDiv.textContent = characterObject.died; 
+
+
+    detailArea.appendChild(nameDiv);
+    detailArea.appendChild(bornDiv);
+    detailArea.appendChild(diedDiv);
+
+
+}
+
+
+function findCharacterInArray(url) {
+   return allCharactersArray.find(function(character) {
+        return character.url == url; 
+        // if (character.url === url) {
+        //     return true;
+        // } else {
+        //     return false
+        // }
+    })
+}
 function drawSingleCharacterToListing(characterObject) {
     const characterName = characterObject.name; 
     if (characterName.length === 0) {
@@ -62,6 +95,16 @@ function drawSingleCharacterToListing(characterObject) {
     }
     const anchorElement = document.createElement('a');
     anchorElement.textContent = characterName; 
+
+
+    // when you need to pass an argument to an event
+    //  hander function, you must wrap in anon function.
+    anchorElement.addEventListener('click', function() {
+        drawCharacterToDetail(characterObject);
+        // const theUrl = characterObject.url;
+        // const theCharacter = findCharacterInArray(theUrl);
+        // drawCharacterToDetail(characterObject);
+    });
 
     const listItem = document.createElement ('li');
     listItem.appendChild(anchorElement); 
