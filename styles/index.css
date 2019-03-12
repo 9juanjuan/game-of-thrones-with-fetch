@@ -1,0 +1,48 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+html, body {
+    height:100%;
+    width: 100%;
+    background-color: gray;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body * {
+    border: 1px solid red;
+}
+
+.index-container {
+    height: 5%;
+}
+
+.main-content {
+    height: 80%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.listing,
+.detail{
+    background-color:black;
+    color: white;
+    height: 100%;
+}
+
+.listing {
+    width:18%;
+}
+.detail {
+    width: 80%;
+    padding: 1em;
+}
+
